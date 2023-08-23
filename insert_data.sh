@@ -8,22 +8,6 @@ else
 fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
-$PSQL "CREATE TABLE teams(
-    team_id SERIAL PRIMARY KEY,
-    name VARCHAR(255) UNIQUE NOT NULL
-)"
-
-
-$PSQL "CREATE TABLE games(
-    game_id SERIAL PRIMARY KEY,
-    round VARCHAR(255) NOT NULL,
-    year INT NOT NULL,
-    winner_id INT REFERENCES teams(team_id) NOT NULL,
-    opponent_id INT REFERENCES teams(team_id) NOT NULL,
-    winner_goals INT NOT NULL,
-    opponent_goals INT NOT NULL
-)"
-
 echo $($PSQL "TRUNCATE TABLE games, teams")
 
 while IFS=',' read -r YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS; do
