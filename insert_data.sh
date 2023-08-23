@@ -54,7 +54,7 @@ while IFS=',' read -r YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS; do
 
     if [[ $INSERT_GAME_RESULT == "INSERT 0 1" ]]
     then
-      echo Inserted in games table $YEAR, $WINNER_GOALS, $OPPONENT_GOALS, $ROUND, $WINNER_TEAM_ID, $OPPONENT_TEAM_ID
+      echo Inserted in games table: $YEAR, $WINNER_GOALS, $OPPONENT_GOALS, $ROUND, $WINNER_TEAM_ID, $OPPONENT_TEAM_ID
     fi
   fi
 done < games.csv
